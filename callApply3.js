@@ -6,9 +6,20 @@ const normalPerson = {
         console.log(this.firstName, this.lastName)
     },
     chargeBill: function(amount){
+        console.log(this);
         this.salary = this.salary - amount;
         return this.salary;
     }
 }
-normalPerson.chargeBill(100);
-console.log(normalPerson.salary);
+
+const heroPerson = {
+    firstName: "Hero",
+    lastName: "Jashim",
+    salary: 20000,
+}
+
+// normalPerson.chargeBill.call(heroPerson, 1000);
+// console.log(heroPerson.salary);
+
+normalPerson.chargeBill.apply(heroPerson, [5000]);
+console.log(heroPerson.salary);
